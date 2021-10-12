@@ -1,7 +1,7 @@
 #include "mgos.h"
 #include "mgos_jsar.h"
 
-#define PIN 36
+#define PIN 2
 
 static void loop(void *arg)
 {
