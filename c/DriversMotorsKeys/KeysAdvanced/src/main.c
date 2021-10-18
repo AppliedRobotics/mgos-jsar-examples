@@ -13,9 +13,8 @@ uint8_t p = 0, pp = 0;
 /* User UART callback */
 void user_cb(uint16_t len, uint8_t *data, void *userdata)
 {
-  memcpy(buf, data, len);
-  mgos_uart_write(UARTno, buf, len);
-  p = len;
+  memcpy(buf + p, data, len);
+  p = p + len;
   (void) userdata;
 }
 
@@ -25,7 +24,6 @@ static void loop(void *arg)
   
   pp = 0;
   
-
   while (pp < p) {
     char c = buf[pp++];
     switch (c) {
@@ -53,7 +51,6 @@ static void loop(void *arg)
   
   p4 = mgos_jsar_KeysPowerRead(4);
   
-
   LOG(LL_INFO, ("Speed: %d\t p4: %d\t", speed, p4));
   LOG(LL_INFO, ("PID_p: %d\t PID_i: %d\t PID_d: %d", pid_p, pid_i, pid_d));
   LOG(LL_INFO, ("e1: %d\t e2: %d\t", e1, e2));
@@ -78,7 +75,7 @@ enum mgos_app_init_result mgos_app_init(void)
   mgos_jsar_KeysPidWrite(pid_p, pid_i, pid_d);
 
   mgos_dxl_setUserUartCb(user_cb, NULL);
-  mgos_set_timer(2000 , MGOS_TIMER_REPEAT, loop, NULL);
+  mgos_set_timer(500, MGOS_TIMER_REPEAT, loop, NULL);
 
   return MGOS_APP_INIT_SUCCESS;
 }
