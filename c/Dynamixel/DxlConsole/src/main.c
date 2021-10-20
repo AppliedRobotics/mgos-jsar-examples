@@ -11,7 +11,6 @@ static void loop(void *arg)
 
 enum mgos_app_init_result mgos_app_init(void) 
 {
-  mgos_jsar_begin();
   mgos_dxl_master_begin(57600);
   console = mgos_dxl_console_create();  
   mgos_set_timer(1000 , MGOS_TIMER_REPEAT, loop, NULL);

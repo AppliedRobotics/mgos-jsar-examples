@@ -22,7 +22,6 @@ static void loop(void *arg)
 
 enum mgos_app_init_result mgos_app_init(void) 
 {
-  mgos_jsar_begin();
   mgos_jsar_KeysBegin();
 
   mgos_set_timer(2000 , MGOS_TIMER_REPEAT, loop, NULL);

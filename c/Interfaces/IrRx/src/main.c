@@ -1,20 +1,26 @@
 #include "mgos.h"
 #include "mgos_jsar.h"
+#include "mgos_ir.h"
 
-#define PIN 36
+#define PIN 34
 
-static void loop(void *arg)
+struct mgos_irrecv_nec_s * ir_inst = NULL;
+
+void irrecv_cb(int code, void *arg)
 {
-  int val = mgos_jsar_expanderAnalogRead(PIN);
-  LOG(LL_INFO, ("Value: %d", val));
+  LOG(LL_INFO, ("IR: %08X", code));
   (void) arg;
 }
 
 enum mgos_app_init_result mgos_app_init(void) 
 {
-  mgos_jsar_begin();
-  mgos_jsar_expanderPinMode(PIN, INPUT);
-  mgos_set_timer(500 , MGOS_TIMER_REPEAT, loop, NULL);
+  mgos_jsar_enableIrRx();
 
+  ir_inst = mgos_irrecv_nec_create(PIN, irrecv_cb, NULL);
+
+  LOG(LL_INFO, ("IrRx app end"));
   return MGOS_APP_INIT_SUCCESS;
 }
+
+
+

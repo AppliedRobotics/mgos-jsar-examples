@@ -22,15 +22,18 @@ filesystem:
   - fs
 
 config_schema:
-  - ["debug.level", 2]
+  - ["debug.level", 3]
   - ["wifi.ap.enable", false]
   - ["wifi.sta.enable", false]
   - ["bt.enable", false]
 
 libs:
   - location: https://github.com/hold3r/mgos-jsar
+  - location: https://github.com/mongoose-os-libs/pwm
 
-
+cdefs:
+  MGOS_IRRECV_NEC_CHECK_ADDR_CRC: 0
+  MGOS_IRRECV_NEC_CHECK_CODE_CRC: 1
 
 # Used by the mos tool to catch mos binaries incompatible with this file format
 manifest_version: 2017-09-29

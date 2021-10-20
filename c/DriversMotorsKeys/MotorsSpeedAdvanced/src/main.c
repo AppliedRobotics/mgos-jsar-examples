@@ -30,7 +30,6 @@ static void loop(void *arg)
 
 enum mgos_app_init_result mgos_app_init(void) 
 {
-  mgos_jsar_begin();
   mgos_jsar_MotorsBegin();
   mgos_jsar_MotorsLoopPeriodWrite(10);
   mgos_jsar_MotorsPidWrite(16, 32, 0);

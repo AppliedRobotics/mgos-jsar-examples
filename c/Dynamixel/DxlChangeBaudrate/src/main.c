@@ -12,7 +12,6 @@ DynamixelDevice * rgb = NULL;
 
 enum mgos_app_init_result mgos_app_init(void) 
 {
-  mgos_jsar_begin();
   mgos_dxl_master_begin(baudrate_1kk);
 
   rgb = mgos_dxl_module_create(id);

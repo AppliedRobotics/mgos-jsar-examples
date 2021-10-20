@@ -78,7 +78,6 @@ static void loop(void *arg)
 
 enum mgos_app_init_result mgos_app_init(void) 
 {
-  mgos_jsar_begin();
   mgos_dxl_master_begin(baudrate);
 
   motor = mgos_dxl_module_create(id);
