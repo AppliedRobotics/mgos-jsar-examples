@@ -217,7 +217,7 @@ static void irsend_nec_pwm(int pin, int code)
 
 void mgos_irsend_nec(int pin, int code, bool tsop)
 {
-  LOG(LL_DEBUG, ("IRSEND @ %d: %08X", pin, code));
+  LOG(LL_INFO, ("IR_tx: %08X", code));
 
   if (tsop) {
     irsend_nec_tsop(pin, code);
