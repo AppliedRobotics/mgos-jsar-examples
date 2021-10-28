@@ -35,7 +35,7 @@ enum mgos_app_init_result mgos_app_init(void)
     LOG(LL_INFO, ("Mkdir: %d", err));
     
     err = rmdir("/sd_card/dir");
-    LOG(LL_INFO, ("Mkdir: %d", err));
+    LOG(LL_INFO, ("rmdir: %d", err));
 
   
 
