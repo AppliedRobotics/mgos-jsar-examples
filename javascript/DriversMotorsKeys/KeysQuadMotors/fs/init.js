@@ -14,9 +14,10 @@ JsArKeys.speedWrite(2, 100);
 JsArKeys.speedWrite(3, 150);
 JsArKeys.speedWrite(4, 200);
 
-Timer.set(2500, Timer.REPEAT, function() {
+Timer.set(500, Timer.REPEAT, function() {
     let e1, e2, e3, e4;
 
+    JsArKeys.encodersEnable();
     e1 = JsArKeys.positionRead(1);
     e2 = JsArKeys.positionRead(2);
     e3 = JsArKeys.positionRead(3);

@@ -1,0 +1,49 @@
+author: Applied Robotics
+description: A __ C app for ESP-JS-AR board 
+version: 1.0
+
+libs_version: ${mos.version}
+modules_version: ${mos.version}
+mongoose_os_version: ${mos.version}
+
+# Optional. List of tags for online search.
+tags:
+  - c
+
+# List of files / directories with C sources. No slashes at the end of dir names.
+sources:
+  - src
+
+includes:
+  - src
+  
+# List of dirs. Files from these dirs will be copied to the device filesystem
+filesystem:
+  - fs
+
+config_schema:
+  - ["debug.level", 2]
+  - ["wifi.ap.enable", false]
+  - ["wifi.sta.enable", false]
+  - ["bt.enable", false]
+
+  - ["sd", "o", {title: "General SD settings"}]
+  - ["sd.max_files", "i", 5, {title: "Max. number of open files"}]
+  - ["sd_spi", "o", {title: "SD SPI settings"}]
+  - ["sd_spi.pin_miso", "i", 12, {title: "SD SPI miso"}]  
+  - ["sd_spi.pin_mosi", "i", 13, {title: "SD SPI mosi"}] 
+  - ["sd_spi.pin_clk", "i", 14, {title: "SD SPI clk"}]   
+  - ["sd_spi.pin_cs", "i", 15, {title: "SD SPI cs"}]     
+  - ["sd_sdmmc", "o", {title: "SD SDMMC settings"}]
+  - ["sd_sdmmc.use1line", "b", false, {title: "Set this to true if the SDMMC interface uses 1-line mode"}]
+  
+build_vars:
+  ESP_IDF_EXTRA_COMPONENTS: "${build_vars.ESP_IDF_EXTRA_COMPONENTS} fatfs sdmmc wear_levelling"
+
+libs:
+  - location: https://github.com/hold3r/mgos-jsar
+
+
+
+# Used by the mos tool to catch mos binaries incompatible with this file format
+manifest_version: 2017-09-29

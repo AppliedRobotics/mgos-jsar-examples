@@ -19,8 +19,11 @@ config_schema:
   - ["bt.enable", false]
   - ["http.enable", false]
 
+
 libs:
   - location: https://github.com/hold3r/mgos-jsar
+  - location: https://github.com/mongoose-os-libs/ir
+
 
 conds:
   - when: mos.platform == "esp32"
