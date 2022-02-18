@@ -1,0 +1,48 @@
+author: Applied Robotics
+description: A __ C app for ESP-JS-AR board 
+version: 1.0
+
+libs_version: ${mos.version}
+modules_version: ${mos.version}
+mongoose_os_version: ${mos.version}
+
+# Optional. List of tags for online search.
+tags:
+  - c
+
+# List of files / directories with C sources. No slashes at the end of dir names.
+sources:
+  - src
+
+includes:
+  - src
+  
+# List of dirs. Files from these dirs will be copied to the device filesystem
+filesystem:
+  - fs
+
+config_schema:
+  - ["debug.level", 2]
+  - ["wifi.ap.enable", false]
+  - ["wifi.sta.enable", false]
+  - ["bt.enable", false]
+
+  - ["i2c", "o", {title: "I2C settings"}]
+  - ["i2c.unit_no", "i", 0, {title: "Which hardware unit to use, 0 or 1"}]
+  - ["i2c.enable", "b", true, {title: "Enable I2C"}]
+  - ["i2c.freq", "i", 100000, {title: "Clock frequency"}]
+  - ["i2c.debug", "b", false, {title: "Debug I2C bus activity"}]
+  - ["i2c.sda_gpio", "i", 32, {title: "GPIO to use for SDA"}]
+  - ["i2c.scl_gpio", "i", 33, {title: "GPIO to use for SCL"}]
+
+
+libs:
+  - location: https://github.com/hold3r/mgos-jsar
+  - location: https://github.com/mongoose-os-libs/i2c
+  - location: https://github.com/hold3r/liquidcrystal-i2c
+
+cdefs:
+
+
+# Used by the mos tool to catch mos binaries incompatible with this file format
+manifest_version: 2017-09-29

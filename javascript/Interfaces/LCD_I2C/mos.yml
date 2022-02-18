@@ -1,0 +1,40 @@
+author: 
+description: A  JS app for jsar
+# arch: PLATFORM
+version: 1.0
+manifest_version: 2017-05-18
+libs_version: ${mos.version}
+modules_version: ${mos.version}
+mongoose_os_version: ${mos.version}
+
+tags:
+  - js
+
+filesystem:
+  - fs
+
+config_schema:
+  - ["wifi.ap.enable", false]
+  - ["wifi.sta.enable", false]
+  - ["bt.enable", false]
+  - ["http.enable", false]
+  - ["i2c", "o", {title: "I2C settings"}]
+  - ["i2c.unit_no", "i", 0, {title: "Which hardware unit to use, 0 or 1"}]
+  - ["i2c.enable", "b", true, {title: "Enable I2C"}]
+  - ["i2c.freq", "i", 100000, {title: "Clock frequency"}]
+  - ["i2c.debug", "b", false, {title: "Debug I2C bus activity"}]
+  - ["i2c.sda_gpio", "i", 32, {title: "GPIO to use for SDA"}]
+  - ["i2c.scl_gpio", "i", 33, {title: "GPIO to use for SCL"}]
+
+libs:
+  - location: https://github.com/hold3r/mgos-jsar
+  - location: https://github.com/hold3r/liquidcrystal-i2c
+
+
+conds:
+  - when: mos.platform == "esp32"
+    apply:
+      build_vars:
+        # Icrease app szie for ESP32
+        APP_SLOT_SIZE: 0x190000
+        MGOS_DEBUG_UART: 3
