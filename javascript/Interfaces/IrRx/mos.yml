@@ -21,7 +21,7 @@ config_schema:
 
 
 libs:
-  - location: https://github.com/hold3r/mgos-jsar
+  - location: https://github.com/AppliedRobotics/mgos-jsar
   - location: https://github.com/mongoose-os-libs/ir
 
 

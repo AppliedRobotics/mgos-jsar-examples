@@ -27,8 +27,8 @@ config_schema:
   - ["i2c.scl_gpio", "i", 33, {title: "GPIO to use for SCL"}]
 
 libs:
-  - location: https://github.com/hold3r/mgos-jsar
-  - location: https://github.com/hold3r/liquidcrystal-i2c
+  - location: https://github.com/AppliedRobotics/mgos-jsar
+  - location: https://github.com/AppliedRobotics/liquidcrystal-i2c
 
 
 conds:

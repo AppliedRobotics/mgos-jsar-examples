@@ -41,7 +41,7 @@ build_vars:
   ESP_IDF_EXTRA_COMPONENTS: "${build_vars.ESP_IDF_EXTRA_COMPONENTS} fatfs sdmmc wear_levelling"
 
 libs:
-  - location: https://github.com/hold3r/mgos-jsar
+  - location: https://github.com/AppliedRobotics/mgos-jsar
 
 
 

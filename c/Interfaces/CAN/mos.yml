@@ -28,8 +28,8 @@ config_schema:
   - ["bt.enable", false]
 
 libs:
-  - location: https://github.com/hold3r/mgos-jsar
-  - location: https://github.com/hold3r/mgos-jsar-can
+  - location: https://github.com/AppliedRobotics/mgos-jsar
+  - location: https://github.com/AppliedRobotics/mgos-jsar-can
 
 
 

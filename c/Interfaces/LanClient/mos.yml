@@ -23,7 +23,7 @@ filesystem:
 
 
 libs:
-  - location: https://github.com/hold3r/mgos-jsar
+  - location: https://github.com/AppliedRobotics/mgos-jsar
 
 
 

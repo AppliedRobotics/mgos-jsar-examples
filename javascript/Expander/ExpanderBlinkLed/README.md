@@ -2,4 +2,4 @@
 
 ## Overview
 
-Это демо приложение на JS для библиотеки [mgos-js](https://github.com/hold3r/mgos-jsar), используемой на платах ESP-JS-AR от Applied Robotics.
+Это демо приложение на JS для библиотеки [mgos-js](https://github.com/AppliedRobotics/mgos-jsar), используемой на платах ESP-JS-AR от Applied Robotics.
